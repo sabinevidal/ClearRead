@@ -1,0 +1,19 @@
+{
+  "name": "flask-boilerplate",
+  "packageManager": "yarn@3.0.2",
+  "dependencies": {
+    "@tailwindcss/forms": "^0.3.3",
+    "autoprefixer": "latest",
+    "postcss": "^8.3.7",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.2.15"
+  },
+  "scripts": {
+    "build:css": "postcss main/static/src/tailwind.css -o main/static/css/main.css",
+    "tailwind:watch": "TAILWIND_MODE=watch NODE_ENV=development postcss main/static/src/tailwind.css -o main/static/css/main.css -w",
+    "tailwind:watch2": "cross-env TAILWIND_MODE=watch cross-env NODE_ENV=development postcss src/tailwind.css -o css/tailwind-output.css -w",
+    "tailwind:build": "cross-env TAILWIND_MODE=build cross-env NODE_ENV=production postcss src/styles/tailwind.css -o src/styles/tailwind-output.css",
+    "dev": "concurrently \"yarn run dev:only\" \"yarn run tailwind:watch\"",
+    "build": "yarn run tailwind:build && yarn run build:only"
+  }
+}

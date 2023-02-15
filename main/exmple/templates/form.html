@@ -1,0 +1,33 @@
+{% from 'macros/_field.html' import render_field %}
+
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block header %}
+    <ol class="flex flex-row text-xs m-1 ml-2 space-x-1">
+        <li class=""><a href="{{ url_for('exmple_bp.exmples') }}">Exmples</a> \ </li>
+        <li class="active" aria-current="page">{{ title }}</li>
+    </ol>
+    <h1>{{ title }}</h1>
+{% endblock %}
+
+{% block content %}
+    <form method="POST" action="{{ request.url }}">
+        {{ form.hidden_tag() }}
+        <h3 class="form-heading">{{ form_heading }}</h3>
+        <div>
+            <fieldset>
+                <legend>Information</legend>
+                {{ render_field(form.name ) }}
+                {{ render_field(form.email) }}
+            </fieldset>
+        </div>
+        <input type="submit" name="submit" role="button" value="Submit" class="btn-grey">
+    </form>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
