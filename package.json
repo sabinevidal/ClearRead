@@ -1,6 +1,6 @@
 {
-  "name": "flask-boilerplate",
-  "packageManager": "yarn@3.0.2",
+  "name": "ClearRead",
+  "packageManager": "yarn@3.4.1",
   "dependencies": {
     "@tailwindcss/forms": "^0.3.3",
     "autoprefixer": "latest",

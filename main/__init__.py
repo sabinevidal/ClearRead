@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from config import Config
@@ -7,10 +9,16 @@ db = SQLAlchemy()
 
 def create_app(test_config=None):
     # create and configure the app
-    app = Flask(__name__, instance_relative_config=False)
-    app.config.from_object("config.Config")
+    app = Flask(__name__, instance_relative_config=True)
+    app.config.from_pyfile('config.py', silent=True)
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///clear-read.db'
     # assets = Environment()
     # assets.init_app(app)
+
+    try:
+        os.makedirs(app.instance_path)
+    except OSError:
+        pass
 
     db.init_app(app)
 
@@ -31,6 +39,6 @@ def create_app(test_config=None):
         # compile_static_assets(assets)  # Execute logic
         # db.drop_all()
         db.create_all()
-
+        
         return app
 

@@ -11,7 +11,7 @@ class Config:
     # General Config
     SECRET_KEY = environ.get("SECRET_KEY")
     FLASK_APP = environ.get("FLASK_APP")
-    FLASK_ENV = environ.get("FLASK_ENV")
+    FLASK_DEBUG = environ.get("FLASK_FLASK_DEBUG")
     TESTING = environ.get("TESTING")
     STATIC_FOLDER = 'static'
     TEMPLATES_FOLDER = 'templates'
@@ -23,8 +23,9 @@ class Config:
 
     # Database
     DATABASE_NAME = environ.get("DATABASE_NAME")
-    SQLALCHEMY_DATABASE_URI = environ.get("SQLALCHEMY_DATABASE_URI") or \
-        'sqlite:///' + os.path.join(basedir, DATABASE_NAME)
+    # SQLALCHEMY_DATABASE_URI = environ.get("SQLALCHEMY_DATABASE_URI") or \
+    #     'sqlite:////' + os.path.join(basedir, DATABASE_NAME)
+    SQLALCHEMY_DATABASE_URI = 'sqlite:////clear-read.db'
     SQLALCHEMY_ECHO = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 

@@ -2,6 +2,10 @@
  Flask + SQLAlchemy + SQLite + WTForms
 
  Recommend using yarn2 'berry' with pnp and no node_modules
+`yarn set version berry`
+`yarn init` if no package.json
+`yarn` if package.json
+`yarn`
 
 For dev in 2 separate terminals run
 `yarn run tailwind:watch`
@@ -30,11 +34,15 @@ https://tailwindcomponents.com/cheatsheet/
 # TODO: instructions for deployment
 
 
-# * Accessibilty
+# * Accessibility
 # TODO: Check all html
 # TODO: form html check best practices
 # TODO: images check best practices
 # TODO: colour guidelines
+
+
+**card accessiblity:**
+https://www.nomensa.com/blog/how-build-accessible-cards-block-links
 
 # * Forms
 # TODO: specify input types and styles in _field.html
